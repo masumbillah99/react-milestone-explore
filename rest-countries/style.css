@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 21px 101px;
+}
+
+.countries {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.country {
+    border: 3px solid slateblue;
+    background-color: aquamarine;
+    border-radius: 13px;
+    padding: 20px;
+}
+
+.country img {
+    width: 251px;
+}
+
+/* responsive with css */
+
+@media screen and (max-width: 1200px) {
+    .countries {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .countries {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    body {
+        margin: 17px 21px;
+    }
+}

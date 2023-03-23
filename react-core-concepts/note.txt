@@ -1,0 +1,46 @@
+1. Javascript XML (JSX)
+JSX is a syntax extension for Javascript that lets you write HTML-like 
+markup inside a Javascript file.
+
+    Rules you should know: 
+    * To return multiple elements from a component, wrap them with a single 
+        parent tag like <div></div> or <></> (fragment)
+    * "class" attribute becomes "className"
+    * Properties are written in camelCase. example: onclick-->onClick, tabindex-->tabIndex
+    * Tags must be closed: <h1></h1>, <img/>
+
+2. Component 
+    * Components are the foundation upon which you build user interfaces(UI)
+    * in a React app, every piece of UI is a component.
+    * React components are regular Javascript functions except:
+        1) their names always begin with a capital letter.
+        2) They return JSX markup.
+
+3. Props 
+    * React components use props to communicate with each other.
+    * every parent communicate can pass some informationto its 
+        child components by giving them props.
+    * you can pass any Javascript value through props, including objects, 
+        arrays and functions.
+    * Props is Unidirectional.
+        
+5. Event Handlers
+    In React, when an event handler updates the state of component, it triggers 
+    a re-render of the component and its children.
+    
+4. useState()
+    useState returns an array with exactly two values:
+    * the current state. During the first render, it will match the initialState 
+        you have passed. 
+    * the set function that lets you update the state to a different value and 
+        trigger a re-render.
+        
+6. useEffect()
+    The useEffect Hook allows you to perform side effects in your components.
+    one example of side effects are: fetching data 
+    syntax: useEffect(callback, dependencies)
+    callback function: this function can perform any side effects, such as 
+        fetching data from an API.
+    dependencies: Dependencies is an optional array of values that the 
+        callback function relies on.
+

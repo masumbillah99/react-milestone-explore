@@ -45,3 +45,10 @@
   margin: 10px;
   border-radius: 9px;
 }
+
+.product {
+  background-color: lightcoral;
+  border: 2px solid red;
+  border-radius: 17px;
+  padding: 19px;
+}

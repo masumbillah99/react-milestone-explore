@@ -1,0 +1,27 @@
+(Thinking in React way)
+
+# why React !! what is react ? ?
+=> React is a Javascript library for building user interface.
+=> library === Reusable collection of codes (Library vs Framework)
+=> Creator Jordan Walke ==> 2011 ==> FaxJS ==> 2013 ==> React JS 
+=> For Reducing duplicate code AKA dom.
+=> React is awesome because of developer experience.
+
+# How React works?
+=> Modular component library.
+=> Replica of DOM ==> Virtual DOM ==> Very important (Real Life Example)
+=> DOM is Fast Enough but Showing in the UI is slow.
+=> Diffing Algo / Reconcilation
+
+PART - TWO 
+# Fundamentals of React !!
+Components && JSX - Javascript XML.
+=> What is Component? Functional Component ! Component vs React Element !
+=> React.createComponent()
+=> Return Single Element.
+=> React.Fragment
+=> 
+=>
+=>
+
+# Tailwind CSS 

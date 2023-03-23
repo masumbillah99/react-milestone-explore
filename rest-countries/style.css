@@ -7,6 +7,12 @@ body {
     margin: 21px 101px;
 }
 
+/* --------------- */
+h1 {
+    margin-bottom: 15px;
+    font-family: cursive;
+}
+
 .countries {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -20,12 +26,15 @@ body {
     padding: 20px;
 }
 
+p {
+    margin: 11px 0;
+}
+
 .country img {
     width: 251px;
 }
 
 /* responsive with css */
-
 @media screen and (max-width: 1200px) {
     .countries {
         grid-template-columns: repeat(2, 1fr);

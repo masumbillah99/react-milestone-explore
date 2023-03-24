@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Dial from '../Dial/Dial';
 
 const Watch = () => {
     const [steps, setSteps] = useState(0);
@@ -13,17 +14,18 @@ const Watch = () => {
     }
 
     return (
-        <div>
+        <div style={{ border: '2px solid red', margin: '11px', padding: '15px' }}>
             <h2>Hey this is Rolex watch</h2>
-            <h5>Steps: {steps}</h5>
+            <p>Your steps count: {steps}</p>
             <button
                 onClick={increaseSteps}
                 style={{ color: 'white', }}
-            >De Dour......</button>
+            >Increase Number</button>
             <button
                 onClick={resetSteps}
                 style={{ color: 'white', marginLeft: '11px' }}
-            >Reset</button>
+            >Reset Number</button>
+            <Dial steps={steps}></Dial>
         </div >
     );
 };

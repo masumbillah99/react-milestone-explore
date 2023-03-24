@@ -1,10 +1,12 @@
 import React from "react";
+import './App.css';
+import Device from './components/Device/Device';
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Hello React from App Component</h1>
+      <Device name="uphone" price="11000"></Device>
     </div>
   )
 

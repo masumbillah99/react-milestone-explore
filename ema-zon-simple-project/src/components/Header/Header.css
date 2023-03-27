@@ -6,6 +6,10 @@ nav.header {
     padding: 15px 100px;
 }
 
+nav.header img {
+    cursor: pointer;
+}
+
 nav.header a {
     color: #ffffff;
     text-decoration: none;

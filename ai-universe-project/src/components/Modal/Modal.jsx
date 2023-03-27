@@ -1,24 +1,35 @@
-import React from 'react';
+import React from "react";
 
-const Modal = () => {
-    return (
-        <div>
-            {/* The button to open modal */}
-        <label htmlFor="my-modal-5" className="btn">open modal</label>
-
-        {/* Put this part before </body> tag */}
-        <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-        <div className="modal">
+const Modal = (props) => {
+  console.log(props.modalData);
+  const { image_link, description, integrations, features } = props.modalData;
+  // console.log(image_link);
+  return (
+    <>
+      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <div className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
-            <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-            <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-            <div className="modal-action">
-                <label htmlFor="my-modal-5" className="btn">Yay!</label>
+          <div className="card lg:card-side bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">New album is released!</h2>
+              <p>Click the button to listen on Spotiwhy app.</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Listen</button>
+              </div>
             </div>
+            <figure>
+              <img src={image_link && image_link[1]} alt="Album" />
+            </figure>
+          </div>
+          <div className="modal-action">
+            <label htmlFor="my-modal-5" className="btn">
+              Close
+            </label>
+          </div>
         </div>
-        </div>
-        </div>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Modal;

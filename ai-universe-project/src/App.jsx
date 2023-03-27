@@ -1,7 +1,8 @@
-import React from 'react';
-import Button from './components/Button/Button';
-import Card from './components/Card/Card';
-import Header from './components/Header/Header';
+import React from "react";
+import Button from "./components/Button/Button";
+import Card from "./components/Card/Card";
+import ArrayExamples from "./components/Events/ArrayExamples";
+import Header from "./components/Header/Header";
 
 const App = () => {
   return (

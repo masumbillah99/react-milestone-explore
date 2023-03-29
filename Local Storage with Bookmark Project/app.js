@@ -12,9 +12,11 @@ const loadProduct = () => {
   
       card.innerHTML = `
             <div class="bookmark-icon">
-                <i class="fa-solid fa-bookmark"></i>
-                <i onclick="handleBookMark('${product.name}', ${product.id},
-                    ${product.price})" class="fa-regular fa-bookmark">
+                <i onclick="removeBookmarked('${product.id}')" 
+                    class="fa-solid fa-bookmark" title="remove from bookmark">
+                </i>
+                <i onclick="handleBookMark('${product.name}', '${product.id}',
+                   '${product.price}')" class="fa-regular fa-bookmark" title="bookmark this item">
                  </i>            
             </div>
             <div class="product-img-container">
@@ -42,8 +44,8 @@ const handleBookMark = (name, id, price) => {
         const isThisProductMarked = previousBookmark.find(pd => pd.id === id);
         if(isThisProductMarked) {
             Swal.fire({
-                icon: 'warning',
-                title: 'Oooops...',
+                icon: 'error',
+                title: 'Warrrrrrrrrrr-ning',
                 text: 'This item is already book marked',
             })
         } else {
@@ -55,6 +57,15 @@ const handleBookMark = (name, id, price) => {
         localStorage.setItem("bookmark", JSON.stringify(bookmark));
     }
 }
+
+// handle remove book mark from local storage
+const removeBookmarked = (id) => {
+    const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
+    const remainingBookmark = previousBookmark.filter((product) => product.id !== id);
+    localStorage.setItem("bookmark", JSON.stringify(remainingBookmark));
+}
+
+
 
 
 loadProduct();

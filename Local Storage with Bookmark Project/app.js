@@ -13,7 +13,9 @@ const loadProduct = () => {
       card.innerHTML = `
             <div class="bookmark-icon">
                 <i class="fa-solid fa-bookmark"></i>
-                <i onclick="handleBookMark('${product.name}', ${product.id}, ${product.price})" class="fa-regular fa-bookmark"></i>            
+                <i onclick="handleBookMark('${product.name}', ${product.id},
+                    ${product.price})" class="fa-regular fa-bookmark">
+                 </i>            
             </div>
             <div class="product-img-container">
                 <img class="product-img" src=${product.image} alt="" />
@@ -29,7 +31,7 @@ const loadProduct = () => {
     });
 };
 
-// handle book mark
+// handle bookmarked in local storage
 const handleBookMark = (name, id, price) => {
     // console.log({id,name, price});
     const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
@@ -37,10 +39,20 @@ const handleBookMark = (name, id, price) => {
     const product = { name, id, price, bookmark:true }
 
     if(previousBookmark) {
-        console.log('ache');
+        const isThisProductMarked = previousBookmark.find(pd => pd.id === id);
+        if(isThisProductMarked) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oooops...',
+                text: 'This item is already book marked',
+            })
+        } else {
+            bookmark.push(...previousBookmark, product);
+            localStorage.setItem("bookmark", JSON.stringify(bookmark));
+        }
     } else {
         bookmark.push(product);
-        JSON.stringify(localStorage.setItem("bookmark", bookmark));
+        localStorage.setItem("bookmark", JSON.stringify(bookmark));
     }
 }
 

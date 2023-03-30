@@ -9,15 +9,22 @@ const loadProduct = () => {
     data.forEach((product) => {
       const card = document.createElement("div");
       card.classList.add("card", "m-2");
+
+      // check bookmarked
+      const isBookmarked = checkBookmark(product.id);
+    //   console.log(isBookmarked);
   
       card.innerHTML = `
             <div class="bookmark-icon">
-                <i onclick="removeBookmarked('${product.id}')" 
-                    class="fa-solid fa-bookmark" title="remove from bookmark">
+
+                <i onclick="${isBookmarked ? `removeBookmarked('${product.id}')`
+                    : `handleBookMark('${product.name}', '${product.id}',
+                    '${product.price}')`}"
+                    class="${isBookmarked ? "fa-solid fa-bookmark" : 
+                        "fa-regular fa-bookmark"}" 
+                    title="remove from bookmark">
                 </i>
-                <i onclick="handleBookMark('${product.name}', '${product.id}',
-                   '${product.price}')" class="fa-regular fa-bookmark" title="bookmark this item">
-                 </i>            
+
             </div>
             <div class="product-img-container">
                 <img class="product-img" src=${product.image} alt="" />
@@ -29,6 +36,9 @@ const loadProduct = () => {
                 <button class="btn btn-primary">Buy Now</button>
             </div>
         `;
+        // <i onclick="handleBookMark('${product.name}', '${product.id}',
+        //     '${product.price}')" class="fa-regular fa-bookmark" title="bookmark this item">
+        // </i>  
       cards.appendChild(card);
     });
 };
@@ -65,6 +75,17 @@ const removeBookmarked = (id) => {
     localStorage.setItem("bookmark", JSON.stringify(remainingBookmark));
 }
 
+// toggle bookmark
+// check is this item bookmarked?
+const checkBookmark = (id) => {
+    const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
+    const isBookmarked = previousBookmark?.find(product => product.id == id);
+    if(isBookmarked) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 
